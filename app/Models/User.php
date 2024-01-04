@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,8 +20,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'pf_number',
+        'first_name',
+        'middle_name',
+        'surname',
+        'phone_number',
+        'office_id',
+        'address',
         'email',
+        'rank',
         'password',
     ];
 
@@ -42,4 +51,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function fullName():Attribute
+    {
+        return Attribute::make(get: fn ($val, $att) => "{$att['first_name']} {$att['middle_name']} {$att['surname']}");
+    }
+
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
 }

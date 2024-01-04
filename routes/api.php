@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/get-users', function (Request $request) {
+    $users = User::where('id', '!=', $request->user_id)->where('office_id', $request->office_id)->get(['id', 'first_name', 'middle_name', 'surname', 'rank'])->append('full_name');
+    return response($users, 200);
 });

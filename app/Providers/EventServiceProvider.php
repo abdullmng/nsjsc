@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\FileSent;
+use App\Events\UserCreated;
+use App\Listeners\SendWelcomeNotification;
+use App\Listeners\SendFileSentNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -17,6 +21,12 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+        ],
+        UserCreated::class => [
+            SendWelcomeNotification::class,
+        ],
+        FileSent::class => [
+            SendFileSentNotification::class,
         ],
     ];
 
