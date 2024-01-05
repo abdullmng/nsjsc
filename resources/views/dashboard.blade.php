@@ -171,7 +171,7 @@
                     </table>
                 </div>
                 <div>
-                    <a href="/documents">View all</a>
+                    <a href="/transfer">View all</a>
                 </div>
             </div>
         </div>
