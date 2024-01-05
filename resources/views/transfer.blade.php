@@ -36,7 +36,13 @@
                                         <td>{{ $transfer->sender->full_name }}</td>
                                         <td>{{ $transfer->sending_office->name }}</td>
                                         <td><span class="badge bg-{{ $transfer->status == 'pending' ? 'warning': 'success' }} p-2">{{ ucfirst($transfer->status) }}</span></td>
-                                        <td><a href="/documents/transfer/acknowledge/{{ $transfer->id }}" class="btn btn-sm btn-primary">Acknowledge</a></td>
+                                        <td>
+                                            @if ($transfer->status != "acknowledged")
+                                                <a href="/documents/transfer/acknowledge/{{ $transfer->id }}" class="btn btn-sm btn-primary">Acknowledge</a>
+                                            @else
+                                                No Action
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

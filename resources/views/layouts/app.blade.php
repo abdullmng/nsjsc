@@ -481,18 +481,20 @@
                     <span class="nav-main-link-name">Dashboard</span>
                   </a>
                 </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link {{ request()->routeIs('users') ? 'active': '' }}" href="/users">
-                        <i class="nav-main-link-icon fa fa-users"></i>
-                        <span class="nav-main-link-name">Manage Users</span>
-                    </a>
-                </li>
+                @if(auth()->user()->role == 'admin')
                 <li class="nav-main-item">
                     <a class="nav-main-link {{ request()->routeIs('offices') ? 'active': '' }}" href="/offices">
                         <i class="nav-main-link-icon fa fa-building"></i>
                         <span class="nav-main-link-name">Manage Offices</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link {{ request()->routeIs('users') ? 'active': '' }}" href="/users">
+                        <i class="nav-main-link-icon fa fa-users"></i>
+                        <span class="nav-main-link-name">Manage Users</span>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-main-item">
                     <a class="nav-main-link {{ request()->routeIs('files') ? 'active': '' }}" href="/documents">
                         <i class="nav-main-link-icon fa fa-upload"></i>
