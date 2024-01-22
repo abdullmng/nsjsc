@@ -61,6 +61,7 @@
 
   <div class="row">
     <!-- Row #5 -->
+    @if(auth()->user()->role == 'admin')
     <div class="col-6 col-md-4 col-xl-2">
       <a class="block block-rounded block-link-shadow text-center" href="/offices">
         <div class="block-content ribbon ribbon-bookmark ribbon-primary ribbon-left">
@@ -82,6 +83,7 @@
         </div>
       </a>
     </div>
+    @endif
     <div class="col-6 col-md-4 col-xl-2">
       <a class="block block-rounded block-link-shadow text-center" href="/documents">
         <div class="block-content">
