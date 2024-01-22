@@ -450,7 +450,7 @@
                 {{--<a class="img-link" href="be_pages_generic_profile.html">
                   <img class="img-avatar" src="/assets/media/avatars/avatar15.jpg" alt="">
                 </a>--}}
-                <p class="lead fs-sm mb-0">{{ auth()->user()->office->name }} <br> {{ ucwords(auth()->user()->rank) }}</p>
+                <p class="lead fs-sm mb-0">{{ auth()->user()->office?->name }} <br> {{ ucwords(auth()->user()->rank) }}</p>
                 <ul class="list-inline mt-3 mb-0">
                   <li class="list-inline-item">
                     <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="/dashboard">{{ auth()->user()->surname }}</a>
