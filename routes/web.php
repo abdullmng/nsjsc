@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", function () {
-    return redirect(route('login'));
-});
+    return view('welcome');
+})->name('home');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class,'authenticate'])->name('authenticate');
 Route::get('/forgot', [AuthController::class,'forgot'])->name('forgot');
