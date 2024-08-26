@@ -11,7 +11,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <img src="https://media.licdn.com/dms/image/D4D12AQE4Nt7MkBwDwA/article-cover_image-shrink_720_1280/0/1656486794498?e=2147483647&v=beta&t=BX6K7x_c9ZUjGCZEuG4qPQbNql20l_fuhJxuVzX1O9E"
+                    <img src="{{ asset('slider1.png') }}"
                         class="w-100 d-block" alt="First slide" loading="lazy" />
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ env('APP_NAME') }}</h5>
@@ -19,11 +19,11 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://dailypost.ng/wp-content/uploads/2024/04/Chief-Judge-of-Niger-State-Justice-Halima-Ibrahim-Abdulmalik.jpeg"
+                    <img src="{{ asset('cj.webp') }}"
                         class="w-100 d-block" alt="Second slide" loading="lazy" />
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Chief Justice</h5>
-                        <p>Justice Halima Abdulmalik</p>
+                        <h5>Chief Judge/Chairman NSJSC</h5>
+                        <p>Hon. Justice Halima Ibrahim Abdulmalik</p>
                     </div>
                 </div>
             </div>
@@ -46,30 +46,43 @@
                 </h4>
             </div>
         </div>
-        <div class="row py-2">
-            <div class="col-md-4 text-center py-4">
-                <img src="https://www.lpcentre.com/new_storage/images/posts//92_1703843564.jpg" alt="Secretary"
+        <div class="row py-4">
+            <div class="col-md-4 text-center py-3">
+                <img src="{{ asset('sec-image.jpg') }}" alt="Secretary"
                     class="img-fluid w-75 mb-4" style="border: 3px solid #00bfFF; border-radius: 10px" loading="lazy">
             </div>
             <div class="col-md-8 px-3">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <figure class="text-center">
+                        <figure>
                             <blockquote class="blockquote">
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam, consectetur a
-                                    reiciendis inventore et minima alias, quibusdam corrupti amet, nesciunt maiores
-                                    necessitatibus sint sunt est modi saepe expedita ipsa illo?</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quo
-                                    veritatis aliquid? Doloremque unde explicabo natus debitis quibusdam
-                                    necessitatibus ab deleniti! Aspernatur non inventore atque voluptas harum earum
-                                    dolor sunt!</p>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate officia
-                                    doloremque esse. Ea, qui corrupti nesciunt rerum aspernatur magni aliquam
-                                    distinctio possimus illum maiores, magnam voluptatem? Eligendi facilis
-                                    laboriosam unde!</p>
+                                <p>As Secretary of the  the Niger State Judicial Service Commission, my mission is to:</p>
+                                <ul>
+                                    <li>
+                                        Provide exemplary leadership and administrative support to the Commission, ensuring effective and efficient management of its operations.
+                                    </li>
+                                    <li>
+                                        Foster a culture of excellence, transparency, and accountability within the Commission and the judiciary.
+                                    </li>
+                                    <li>
+                                        Facilitate the selection, appointment, and oversight of a meritorious and independent judiciary, upholding the highest standards of integrity and impartiality.
+                                    </li>
+                                    <li>
+                                        Promote public trust and confidence in the judiciary through open communication.
+                                    </li>
+                                    <li>
+                                        Ensure seamless coordination and collaboration with stakeholders, including the judiciary, government agencies, and the legal profession.
+                                    </li>
+                                    <li>
+                                        Drive innovation and continuous improvement in the administration of justice, embracing technology and best practices.
+                                    </li>
+                                    <li>
+                                        Uphold the principles of justice, equality, and human rights in all aspects of my work, embodying the values of integrity, professionalism, and dedication.
+                                    </li>
+                                </ul>
                             </blockquote>
                             <figcaption class="blockquote-footer text-niger-blue">
-                                Hajiya Hauwa Yusuf
+                                Hauwa Kulu Isah - <i>Secretary</i>
                             </figcaption>
                         </figure>
                     </div>
@@ -130,15 +143,15 @@
                         <!-- Slide 1 -->
                         <div class="swiper-slide">
                             <div class="card border-0 shadow shadow-sm">
-                                <img src="https://www.lpcentre.com/new_storage/images/posts//92_1703843564.jpg"
-                                    alt="secretary" class="card-img-top" loading="lazy">
+                                <img src="{{ asset('cj-image.jpg') }}"
+                                    alt="secretary" class="card-img-top" loading="lazy" >
                                 <div class="card-body">
                                     <div class="mb-3 text-center">
                                         <figure class="text-center">
                                             <blockquote class="blockquote text-niger-blue">
-                                                Hajiya Hauwa B. Yusuf
+                                                Hon. Justice Halima I. Abdulmalik
                                             </blockquote>
-                                            <figcaption class="blockquote-footer">Secretary</figcaption>
+                                            <figcaption class="blockquote-footer">Chief Judge/Chairman NSJSC</figcaption>
                                         </figure>
                                     </div>
                                 </div>
@@ -147,13 +160,13 @@
                         <!-- Slide 2 -->
                         <div class="swiper-slide">
                             <div class="card border-0 shadow shadow-sm">
-                                <img src="https://www.lpcentre.com/new_storage/images/posts//92_1703843564.jpg"
-                                    alt="secretary" class="card-img-top" loading="lazy">
+                                <img src="{{ asset('sec-image.jpg') }}"
+                                    alt="secretary" class="card-img-top" loading="lazy" >
                                 <div class="card-body">
                                     <div class="mb-3 text-center">
                                         <figure class="text-center">
                                             <blockquote class="blockquote text-niger-blue">
-                                                Hajiya Hauwa B. Yusuf
+                                                Hauwa Kulu Isah
                                             </blockquote>
                                             <figcaption class="blockquote-footer">Secretary</figcaption>
                                         </figure>
@@ -164,15 +177,15 @@
                         <!-- Slide 3 -->
                         <div class="swiper-slide">
                             <div class="card border-0 shadow shadow-sm">
-                                <img src="https://www.lpcentre.com/new_storage/images/posts//92_1703843564.jpg"
-                                    alt="secretary" class="card-img-top" loading="lazy">
+                                <img src="{{ asset('da-image.jpg') }}"
+                                    alt="secretary" class="card-img-top" loading="lazy" >
                                 <div class="card-body">
                                     <div class="mb-3 text-center">
                                         <figure class="text-center">
                                             <blockquote class="blockquote text-niger-blue">
-                                                Hajiya Hauwa B. Yusuf
+                                                Fatima Zahra Mohammed
                                             </blockquote>
-                                            <figcaption class="blockquote-footer">Secretary</figcaption>
+                                            <figcaption class="blockquote-footer">Director Administration</figcaption>
                                         </figure>
                                     </div>
                                 </div>
@@ -181,15 +194,15 @@
                         <!-- Slide 4 -->
                         <div class="swiper-slide">
                             <div class="card border-0 shadow shadow-sm">
-                                <img src="https://www.lpcentre.com/new_storage/images/posts//92_1703843564.jpg"
-                                    alt="secretary" class="card-img-top" loading="lazy">
+                                <img src="{{ asset('df-image.jpg') }}"
+                                    alt="secretary" class="card-img-top" loading="lazy" >
                                 <div class="card-body">
                                     <div class="mb-3 text-center">
                                         <figure class="text-center">
                                             <blockquote class="blockquote text-niger-blue">
-                                                Hajiya Hauwa B. Yusuf
+                                                Esther N. Jiya
                                             </blockquote>
-                                            <figcaption class="blockquote-footer">Secretary</figcaption>
+                                            <figcaption class="blockquote-footer">Director Finance</figcaption>
                                         </figure>
                                     </div>
                                 </div>

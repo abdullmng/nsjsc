@@ -84,12 +84,8 @@
                     <span class="d-block">920101, Niger</span>
                 </address>
                 <p>
-                    <b>Phone:</b>
-                    08030303030
-                </p>
-                <p>
                     <b>Email:</b>
-                    support@nsjsc.ng
+                    <a href="mailto:nigerstatejsc@gmail.com" class="nav-link d-inline text-niger-blue">nigerstatejsc@gmail.com</a>
                 </p>
             </div>
             <div class="col-md-4">

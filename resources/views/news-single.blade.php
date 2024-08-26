@@ -2,7 +2,7 @@
 @section('title', 'News')
 @section('content')
     <section>
-        <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="py-5 px-4 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-6 fw-bold">{{ $post->title }}</h1>
                 <p>Posted By: {{ $post->user?->full_name }}, On: {{ $post->created_at->format('Y-m-d h:ia') }}</p>
