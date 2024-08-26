@@ -1,0 +1,28 @@
+body
+        {
+            scroll-behavior: smooth;
+        }
+        .carousel-item {
+            max-height: 570px;
+        }
+
+        .navbar .nav-item:hover {
+            border-bottom: 3px solid #00bfff;
+        }
+
+        .navbar .active {
+            border-bottom: 3px solid #00bfff;
+            background-color: #00bfFF46
+        }
+
+        .dropdown-item:hover {
+            background-color: #00bfff54
+        }
+
+        .text-niger-blue {
+            color: #00bfFF;
+        }
+
+        .bg-niger-blue {
+            background-color: #00bfFF;
+        }
