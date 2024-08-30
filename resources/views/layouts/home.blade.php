@@ -37,22 +37,22 @@
                                 <span class="visually-hidden">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs('who_we_are')  ? 'active' : '' }} {{ request()->routeIs('mission_vision')  ? 'active' : '' }} {{ request()->routeIs('structure')  ? 'active' : '' }} {{ request()->routeIs('members')  ? 'active' : '' }} {{ request()->routeIs('management')  ? 'active' : '' }} {{ request()->routeIs('history')  ? 'active' : '' }}" href="#" id="dropdownId" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">About Us</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                <a class="dropdown-item" href="#">Who we are</a>
-                                <a class="dropdown-item" href="#">Mission and Vision Statement</a>
-                                <a class="dropdown-item" href="#">Structure of NSJSC</a>
-                                <a class="dropdown-item" href="#">Members of the Commission</a>
-                                <a class="dropdown-item" href="#">Management</a>
-                                <a class="dropdown-item" href="#">History</a>
+                                <a class="dropdown-item" href="{{ route('who_we_are') }}">Who we are</a>
+                                <a class="dropdown-item" href="{{ route('mission_vision') }}">Mission and Vision Statement</a>
+                                <a class="dropdown-item" href="{{ route('structure') }}">Structure of NSJSC</a>
+                                <a class="dropdown-item" href="{{ route('members') }}">Members of the Commission</a>
+                                <a class="dropdown-item" href="{{ route('management') }}">Management</a>
+                                <a class="dropdown-item" href="{{ route('history') }}">History</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Small Claims Court</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('news')  ? 'active' : '' }} {{ request()->routeIs('news.single')  ? 'active' : '' }}" href="#">News & Events</a>
+                            <a class="nav-link {{ request()->routeIs('news')  ? 'active' : '' }} {{ request()->routeIs('news.single')  ? 'active' : '' }}" href="{{ route('news') }}">News & Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
@@ -90,11 +90,11 @@
             </div>
             <div class="col-md-4">
                 <h4 class="text-niger-blue">Quick Links</h4>
-                <p><a href="#" class="nav-link">Who we are</a></p>
-                <p><a href="#" class="nav-link">Mission & Vision Statement</a></p>
-                <p><a href="#" class="nav-link">Management</a></p>
-                <p><a href="#" class="nav-link">Members</a></p>
-                <p><a href="#" class="nav-link">History</a></p>
+                <p><a href="{{ route('who_we_are') }}" class="nav-link">Who we are</a></p>
+                <p><a href="{{ route('mission_vision') }}" class="nav-link">Mission & Vision Statement</a></p>
+                <p><a href="{{ route('management') }}" class="nav-link">Management</a></p>
+                <p><a href="{{ route('members') }}" class="nav-link">Members</a></p>
+                <p><a href="{{ route('history') }}" class="nav-link">History</a></p>
             </div>
             <div class="col-md-4">
                 <h4 class="text-niger-blue">Newsletter</h4>

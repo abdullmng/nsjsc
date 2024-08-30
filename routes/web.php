@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\FileTransferController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\UserController;
 use App\Models\Blog;
@@ -26,7 +27,14 @@ Route::get("/", function () {
     $posts = Blog::latest()->get();
     return view('welcome', compact('posts'));
 })->name('home');
-Route::get('/news', [BlogController::class, 'index'])->name('news');
+Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who_we_are');
+Route::get('/mission-vision', [HomeController::class,'missionVision'])->name('mission_vision');
+Route::get('members', [HomeController::class, 'members'])->name('members');
+Route::get('structure', [HomeController::class,'structure'])->name('structure');
+Route::get('management', [HomeController::class, 'management'])->name('management');
+Route::get('history', [HomeController::class,'history'])->name('history');
+
+Route::get('/news', [HomeController::class, 'news'])->name('news');
 Route::get('/news/single/{id}', [BlogController::class, 'singleBlog'])->name('news.single');
 
 

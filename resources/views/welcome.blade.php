@@ -92,13 +92,8 @@
     </section>
     <!-- ======================= Structure Section ===================== -->
     <section class="bg-white">
-        <div class="row py-3">
-            <div class="col-md-12 text-center">
-                <h3 class="text-niger-blue">NSJSC Structure.</h3>
-            </div>
-        </div>
         <div class="row flex-row-reverse py-5">
-            <div class="col-md-6 px-4">
+            <div class="col-md-6 px-4 py-5">
                 <img src="{{ asset('xfeatures.jpg') }}" alt="image" class="image-fluid w-100" loading="lazy">
             </div>
             <div class="col-md-6 px-4">
@@ -107,21 +102,25 @@
                         <p class="lead mb-5">
                             <img src="{{ asset('nsjsc_logo.png') }}" alt="nsjsc" style="width: 50px; height: 50px;"
                                 loading="lazy">
+                                <br>
                             Judiciary Service Commission
                         </p>
                         <p class="lead mb-5">
                             <img src="{{ asset('hc.jpeg') }}" alt="hc" style="width: 50px; height: 50px;"
                                 loading="lazy">
+                                <br>
                             High Court of Justice.
                         </p>
                         <p class="lead mb-5">
                             <img src="{{ asset('sc.jpeg') }}" alt="sc" style="width: 50px; height: 50px;"
                                 loading="lazy">
+                                <br>
                             Sharia Court of Appeal
                         </p>
                         <p class="lead mb-5">
                             <img src="{{ asset('cca.jpeg') }}" alt="cca" style="width: 50px; height: 50px;"
                                 loading="lazy">
+                                <br>
                             Customary Court of Appeal
                         </p>
                     </div>
@@ -220,7 +219,7 @@
         </div>
         <div class="row py-4">
             <div class="col-md-12 text-center">
-                <a href="#" style="text-decoration: none" class="lead text-niger-blue">View more >></a>
+                <a href="{{ route('management') }}" style="text-decoration: none" class="lead text-niger-blue">View more >></a>
             </div>
         </div>
     </section>
