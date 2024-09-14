@@ -1,28 +1,27 @@
-body
-        {
-            scroll-behavior: smooth;
-        }
-        .carousel-item {
-            max-height: 570px;
-        }
+body {
+    scroll-behavior: smooth;
+}
 
-        .navbar .nav-item:hover {
-            border-bottom: 3px solid #00bfff;
-        }
+.carousel-item {
+    max-height: 574px;
+}
 
-        .navbar .active {
-            border-bottom: 3px solid #00bfff;
-            background-color: #00bfFF46
-        }
+.navbar .nav-item:hover {
+    border-bottom: 3px solid #00bfff;
+}
 
-        .dropdown-item:hover {
-            background-color: #00bfff54
-        }
+.navbar .active {
+    border-bottom: 3px solid #00bfff;
+}
 
-        .text-niger-blue {
-            color: #00bfFF;
-        }
+.dropdown-item:hover {
+    background-color: #00bfff54;
+}
 
-        .bg-niger-blue {
-            background-color: #00bfFF;
-        }
+.text-niger-blue {
+    color: #00bfff;
+}
+
+.bg-niger-blue {
+    background-color: #00bfff;
+}

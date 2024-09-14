@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", function () {
-    $posts = Blog::latest()->get();
+    $posts = Blog::latest()->limit(5)->get();
     return view('welcome', compact('posts'));
 })->name('home');
 Route::get('/who-we-are', [HomeController::class, 'whoWeAre'])->name('who_we_are');

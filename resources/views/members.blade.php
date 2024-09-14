@@ -7,7 +7,6 @@
                 <h1 class="display-5 fw-bold">Honorable Members of the Commission</h1>
             </div>
         </div>
-
     </section>
     <section class="bg-white">
         <div class="row py-5 px-4 justify-content-center">

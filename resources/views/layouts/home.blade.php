@@ -33,15 +33,18 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('home')  ? 'active' : '' }}" href="/" aria-current="page">Home
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="/"
+                                aria-current="page">Home
                                 <span class="visually-hidden">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ request()->routeIs('who_we_are')  ? 'active' : '' }} {{ request()->routeIs('mission_vision')  ? 'active' : '' }} {{ request()->routeIs('structure')  ? 'active' : '' }} {{ request()->routeIs('members')  ? 'active' : '' }} {{ request()->routeIs('management')  ? 'active' : '' }} {{ request()->routeIs('history')  ? 'active' : '' }}" href="#" id="dropdownId" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">About Us</a>
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs('who_we_are') ? 'active' : '' }} {{ request()->routeIs('mission_vision') ? 'active' : '' }} {{ request()->routeIs('structure') ? 'active' : '' }} {{ request()->routeIs('members') ? 'active' : '' }} {{ request()->routeIs('management') ? 'active' : '' }} {{ request()->routeIs('history') ? 'active' : '' }}"
+                                href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">About Us</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownId">
                                 <a class="dropdown-item" href="{{ route('who_we_are') }}">Who we are</a>
-                                <a class="dropdown-item" href="{{ route('mission_vision') }}">Mission and Vision Statement</a>
+                                <a class="dropdown-item" href="{{ route('mission_vision') }}">Mission and Vision
+                                    Statement</a>
                                 <a class="dropdown-item" href="{{ route('structure') }}">Structure of NSJSC</a>
                                 <a class="dropdown-item" href="{{ route('members') }}">Members of the Commission</a>
                                 <a class="dropdown-item" href="{{ route('management') }}">Management</a>
@@ -52,7 +55,8 @@
                             <a class="nav-link" href="#">Small Claims Court</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('news')  ? 'active' : '' }} {{ request()->routeIs('news.single')  ? 'active' : '' }}" href="{{ route('news') }}">News & Events</a>
+                            <a class="nav-link {{ request()->routeIs('news') ? 'active' : '' }} {{ request()->routeIs('news.single') ? 'active' : '' }}"
+                                href="{{ route('news') }}">News & Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
@@ -85,7 +89,8 @@
                 </address>
                 <p>
                     <b>Email:</b>
-                    <a href="mailto:nigerstatejsc@gmail.com" class="nav-link d-inline text-niger-blue">nigerstatejsc@gmail.com</a>
+                    <a href="mailto:nigerstatejsc@gmail.com"
+                        class="nav-link d-inline text-niger-blue">nigerstatejsc@gmail.com</a>
                 </p>
             </div>
             <div class="col-md-4">
@@ -100,7 +105,8 @@
                 <h4 class="text-niger-blue">Newsletter</h4>
                 <p>Enter your email address below to subscribe to our newsletter.</p>
                 <div class="input-group">
-                    <input type="email" name="" id="" class="form-control" autocomplete="false" placeholder="johndoe@example.com">
+                    <input type="email" name="" id="" class="form-control" autocomplete="false"
+                        placeholder="johndoe@example.com">
                     <button class="btn btn-info bg-niger-blue text-white">Subscribe</button>
                 </div>
             </div>
@@ -119,6 +125,18 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="{{ asset('script.js') }}"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const sticky = navbar.offsetTop;
+
+            if (window.pageYOffset > sticky) {
+                navbar.classList.add('fixed-top');
+            } else {
+                navbar.classList.remove('fixed-top');
+            }
+        })
+    </script>
     @yield('scripts')
 </body>
 
