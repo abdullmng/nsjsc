@@ -9,11 +9,7 @@ class Office extends Model
 {
     use HasFactory;
 
-    protected $fillable =
-    [
-        'name',
-        'address'
-    ];
+    protected $guarded = [];
 
     public function users()
     {

@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\UsersDataTable;
 use App\Events\UserCreated;
+use App\Exports\UsersForPromotion;
+use App\Imports\UsersImport;
 use App\Models\File;
 use App\Models\FileTransfer;
+use App\Models\GradeLevel;
 use App\Models\Office;
+use App\Models\Step;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -22,19 +28,44 @@ class UserController extends Controller
             'acknowledged_files' => FileTransfer::where('acknowledged_by', auth()->id())->count(),
         ];
         $transfers = FileTransfer::where('sent_to', auth()->id())->latest()->limit(3)->get();
-        return view('dashboard', ['stats' => $stats,'transfers'=> $transfers]);
+        return view('dashboard', ['stats' => $stats, 'transfers' => $transfers]);
     }
 
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        $users = User::all();
-        return view('users', ['users' => $users]);
+        $grade_levels = GradeLevel::all();
+        $steps = Step::all();
+        return $dataTable->render('users', ['grade_levels' => $grade_levels, 'steps' => $steps]);
+    }
+
+    public function import(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|file|mimes:xlsx,xls,csv|max:1024',
+            'grade_level' => 'nullable|numeric',
+            'step' => 'nullable|numeric'
+        ]);
+        $file = $request->file('file');
+        $data = ['grade_level_id' => $request->grade_level, 'step_id' => $request->step];
+        Excel::import(new UsersImport($data), $file);
+        return back()->with('success', 'Users imported');
+    }
+
+    public function export(Request $request)
+    {
+        $request->validate([
+            'grade_level' => 'required|numeric'
+        ]);
+        $grade_level = GradeLevel::find($request->grade_level);
+        return Excel::download(new UsersForPromotion($request), "DueForPromotionLevel{$grade_level->name}.xlsx");
     }
 
     public function add()
     {
         $offices = Office::all();
-        return view('add_user', ['offices'=> $offices]);
+        $grade_levels = GradeLevel::all();
+        $steps = Step::all();
+        return view('add_user', compact('offices', 'grade_levels', 'steps'));
     }
 
     public function create(Request $request)
@@ -63,7 +94,9 @@ class UserController extends Controller
     {
         $user = User::find($user_id);
         $offices = Office::all();
-        return view('edit_user', ['user'=> $user, 'offices'=> $offices]);
+        $grade_levels = GradeLevel::all();
+        $steps = Step::all();
+        return view('edit_user', compact('user', 'offices', 'grade_levels', 'steps'));
     }
 
     public function update(Request $request, $user_id)
@@ -80,12 +113,12 @@ class UserController extends Controller
 
         $data = $request->except('_token', 'email');
         User::where('id', $user_id)->update($data);
-        return back()->with('success','User updated');
+        return back()->with('success', 'User updated');
     }
 
     public function delete($user_id)
     {
         User::where('id', $user_id)->delete();
-        return back()->with('success','User deleted');
+        return back()->with('success', 'User deleted');
     }
 }

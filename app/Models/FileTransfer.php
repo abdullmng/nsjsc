@@ -9,15 +9,7 @@ class FileTransfer extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'sent_by',
-        'sent_to',
-        'acknowledged_by',
-        'sending_office_id',
-        'receiving_office_id',
-        'file_id',
-        'status'
-    ];
+    protected $guarded = [];
 
     public function file()
     {

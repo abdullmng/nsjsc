@@ -1,7 +1,7 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
@@ -13,9 +13,9 @@
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="/assets/media/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/assets/media/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/media/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="{{ asset('nsjsc_logo.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('nsjsc_logo.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('nsjsc_logo.png') }}">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
@@ -31,9 +31,14 @@
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <!-- <link rel="stylesheet" id="css-theme" href="/assets/css/themes/flat.min.css"> -->
     <!-- END Stylesheets -->
-  </head>
+    <style>
+        table {
+            white-space: nowrap;
+        }
+    </style>
+</head>
 
-  <body>
+<body>
     <!-- Page Container -->
     <!--
       Available classes for #page-container:
@@ -86,8 +91,8 @@
         'sidebar-dark page-header-dark dark-mode'   Enable dark mode (light sidebar/header is not supported with dark mode)
     -->
     <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed">
-      <!-- Side Overlay-->
-      {{-- <aside id="side-overlay">
+        <!-- Side Overlay-->
+        {{-- <aside id="side-overlay">
         <!-- Side Header -->
         <div class="content-header">
           <!-- User Avatar -->
@@ -389,10 +394,10 @@
         </div>
         <!-- END Side Content -->
       </aside> --}}
-      <!-- END Side Overlay -->
+        <!-- END Side Overlay -->
 
-      <!-- Sidebar -->
-      <!--
+        <!-- Sidebar -->
+        <!--
         Helper classes
 
         Adding .smini-hide to an element will make it invisible (opacity: 0) when the sidebar is in mini mode
@@ -403,271 +408,326 @@
         Adding .smini-visible to an element will show it only when the sidebar is in mini mode
         Adding 'smini-visible-block' to an element will show it (display: block) only when the sidebar is in mini mode
       -->
-      <nav id="sidebar">
-        <!-- Sidebar Content -->
-        <div class="sidebar-content">
-          <!-- Side Header -->
-          <div class="content-header justify-content-lg-center">
-            <!-- Logo -->
-            <div>
-              <span class="smini-visible fw-bold tracking-wide fs-lg">
-                {{ env('APP_SHORT_NAME') }}
-              </span>
-              <a class="link-fx fw-bold tracking-wide mx-auto" href="/dashboard">
-                <span class="smini-hidden">
-                  {{-- <i class="fa fa-fire text-primary"></i> --}}
-                  {{ env('APP_NAME') }}
-                </span>
-              </a>
-            </div>
-            <!-- END Logo -->
+        <nav id="sidebar">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- Side Header -->
+                <div class="content-header justify-content-lg-center">
+                    <!-- Logo -->
+                    <div>
+                        <span class="smini-visible fw-bold tracking-wide fs-lg">
+                            {{ env('APP_SHORT_NAME') }}
+                        </span>
+                        <a class="link-fx fw-bold tracking-wide mx-auto" href="/dashboard">
+                            <span class="smini-hidden">
+                                {{-- <i class="fa fa-fire text-primary"></i> --}}
+                                {{ env('APP_NAME') }}
+                            </span>
+                        </a>
+                    </div>
+                    <!-- END Logo -->
 
-            <!-- Options -->
-            <div>
-              <!-- Close Sidebar, Visible only on mobile screens -->
-              <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-              <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout" data-action="sidebar_close">
-                <i class="fa fa-fw fa-times"></i>
-              </button>
-              <!-- END Close Sidebar -->
-            </div>
-            <!-- END Options -->
-          </div>
-          <!-- END Side Header -->
+                    <!-- Options -->
+                    <div>
+                        <!-- Close Sidebar, Visible only on mobile screens -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout"
+                            data-action="sidebar_close">
+                            <i class="fa fa-fw fa-times"></i>
+                        </button>
+                        <!-- END Close Sidebar -->
+                    </div>
+                    <!-- END Options -->
+                </div>
+                <!-- END Side Header -->
 
-          <!-- Sidebar Scrolling -->
-          <div class="js-sidebar-scroll">
-            <!-- Side User -->
-            <div class="content-side content-side-user px-0 py-0">
-              <!-- Visible only in mini mode -->
-              <div class="smini-visible-block animated fadeIn px-3">
-                <img class="img-avatar img-avatar32" src="/assets/media/avatars/avatar15.jpg" alt="">
-              </div>
-              <!-- END Visible only in mini mode -->
+                <!-- Sidebar Scrolling -->
+                <div class="js-sidebar-scroll">
+                    <!-- Side User -->
+                    <div class="content-side content-side-user px-0 py-0">
+                        <!-- Visible only in mini mode -->
+                        <div class="smini-visible-block animated fadeIn px-3">
+                            <img class="img-avatar img-avatar32" src="/assets/media/avatars/avatar15.jpg"
+                                alt="">
+                        </div>
+                        <!-- END Visible only in mini mode -->
 
-              <!-- Visible only in normal mode -->
-              <div class="smini-hidden text-center mx-auto">
-                {{--<a class="img-link" href="be_pages_generic_profile.html">
+                        <!-- Visible only in normal mode -->
+                        <div class="smini-hidden text-center mx-auto">
+                            {{-- <a class="img-link" href="be_pages_generic_profile.html">
                   <img class="img-avatar" src="/assets/media/avatars/avatar15.jpg" alt="">
-                </a>--}}
-                <p class="lead fs-sm mb-0">{{ auth()->user()->office?->name }} <br> {{ ucwords(auth()->user()->rank) }}</p>
-                <ul class="list-inline mt-3 mb-0">
-                  <li class="list-inline-item">
-                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="/dashboard">{{ auth()->user()->surname }}</a>
-                  </li>
-                  <li class="list-inline-item">
-                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                    <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle" href="javascript:void(0)" id="dark-toggle">
-                      <i class="fa fa-moon"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a class="link-fx text-dual" href="/logout">
-                      <i class="fa fa-sign-out-alt"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <!-- END Visible only in normal mode -->
-            </div>
-            <!-- END Side User -->
+                </a> --}}
+                            <p class="lead fs-sm mb-0">{{ auth()->user()->office?->name }} <br>
+                                {{ ucwords(auth()->user()->rank) }}</p>
+                            <ul class="list-inline mt-3 mb-0">
+                                <li class="list-inline-item">
+                                    <a class="link-fx text-dual fs-sm fw-semibold text-uppercase"
+                                        href="/dashboard">{{ auth()->user()->surname }}</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                    <a class="link-fx text-dual" data-toggle="layout" data-action="dark_mode_toggle"
+                                        href="javascript:void(0)" id="dark-toggle">
+                                        <i class="fa fa-moon"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a class="link-fx text-dual" href="/logout">
+                                        <i class="fa fa-sign-out-alt"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END Visible only in normal mode -->
+                    </div>
+                    <!-- END Side User -->
 
-            <!-- Side Navigation -->
-            <div class="content-side content-side-full">
-              <ul class="nav-main">
-                <li class="nav-main-item">
-                  <a class="nav-main-link {{ request()->routeIs('user.dashboard') ? 'active': '' }}" href="/dashboard">
-                    <i class="nav-main-link-icon fa fa-house-user"></i>
-                    <span class="nav-main-link-name">Dashboard</span>
-                  </a>
-                </li>
-                @if(auth()->user()->role == 'admin')
-                <li class="nav-main-item">
-                    <a class="nav-main-link {{ request()->routeIs('offices') ? 'active': '' }}" href="/offices">
-                        <i class="nav-main-link-icon fa fa-building"></i>
-                        <span class="nav-main-link-name">Manage Offices</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link {{ request()->routeIs('users') ? 'active': '' }}" href="/users">
-                        <i class="nav-main-link-icon fa fa-users"></i>
-                        <span class="nav-main-link-name">Manage Users</span>
-                    </a>
-                </li>
-                @endif
-                <li class="nav-main-item">
-                    <a class="nav-main-link {{ request()->routeIs('files') ? 'active': '' }}" href="/documents">
-                        <i class="nav-main-link-icon fa fa-upload"></i>
-                        <span class="nav-main-link-name">My Documents</span>
-                    </a>
-                </li>
-                <li class="nav-main-item">
-                    <a class="nav-main-link {{ request()->routeIs('transfer') ? 'active': '' }}" href="/transfer">
-                        <i class="nav-main-link-icon fa fa-file-pdf"></i>
-                        <span class="nav-main-link-name">Received Documents</span>
-                    </a>
-                </li>
-                {{--<li class="nav-main-item">
+                    <!-- Side Navigation -->
+                    <div class="content-side content-side-full">
+                        <ul class="nav-main">
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{ request()->routeIs('user.dashboard') ? 'active' : '' }}"
+                                    href="/dashboard">
+                                    <i class="nav-main-link-icon fa fa-house-user"></i>
+                                    <span class="nav-main-link-name">Dashboard</span>
+                                </a>
+                            </li>
+                            @if (auth()->user()->role == 'admin')
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link {{ request()->routeIs('offices') ? 'active' : '' }}"
+                                        href="/offices">
+                                        <i class="nav-main-link-icon fa fa-building"></i>
+                                        <span class="nav-main-link-name">Manage Offices</span>
+                                    </a>
+                                </li>
+                                <li class="nav-main-item">
+                                    <a class="nav-main-link {{ request()->routeIs('users') ? 'active' : '' }}"
+                                        href="/users">
+                                        <i class="nav-main-link-icon fa fa-users"></i>
+                                        <span class="nav-main-link-name">Manage Users</span>
+                                    </a>
+                                </li>
+                            @endif
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{ request()->routeIs('grade_levels.index') ? 'active' : '' }}"
+                                    href="{{ route('grade_levels.index') }}">
+                                    <i class="nav-main-link-icon fas fa-arrow-up-wide-short"></i>
+                                    <span class="nav-main-link-name">Grade Levels</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{ request()->routeIs('steps.index') ? 'active' : '' }}"
+                                    href="{{ route('steps.index') }}">
+                                    <i class="nav-main-link-icon fas fa-arrow-up-right-dots"></i>
+                                    <span class="nav-main-link-name">Steps</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{ request()->routeIs('files') ? 'active' : '' }}"
+                                    href="/documents">
+                                    <i class="nav-main-link-icon fa fa-upload"></i>
+                                    <span class="nav-main-link-name">My Documents</span>
+                                </a>
+                            </li>
+                            <li class="nav-main-item">
+                                <a class="nav-main-link {{ request()->routeIs('transfer') ? 'active' : '' }}"
+                                    href="/transfer">
+                                    <i class="nav-main-link-icon fa fa-file-pdf"></i>
+                                    <span class="nav-main-link-name">Received Documents</span>
+                                </a>
+                            </li>
+                            {{-- <li class="nav-main-item">
                     <a class="nav-main-link" href="/received">
                         <i class="nav-main-link-icon fa fa-file-pdf"></i>
                         <span class="nav-main-link-name">Received Documents</span>
                     </a>
-                </li>--}}
-                <li class="nav-main-item">
-                    <a class="nav-main-link" href="/logout">
-                        <i class="nav-main-link-icon fa fa-sign-out-alt"></i>
-                        <span class="nav-main-link-name">Sign Out</span>
-                    </a>
-                </li>
-              </ul>
-            </div>
-            <!-- END Side Navigation -->
-          </div>
-          <!-- END Sidebar Scrolling -->
-        </div>
-        <!-- Sidebar Content -->
-      </nav>
-      <!-- END Sidebar -->
-
-      <!-- Header -->
-      <header id="page-header">
-        <!-- Header Content -->
-        <div class="content-header">
-          <!-- Left Section -->
-          <div class="space-x-1">
-            <!-- Toggle Sidebar -->
-            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="sidebar_toggle">
-              <i class="fa fa-fw fa-bars"></i>
-            </button>
-            <!-- END Toggle Sidebar -->
-
-
-            <!-- Color Themes -->
-            <div class="dropdown d-inline-block">
-              <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-themes-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-fw fa-wrench"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-lg p-0" aria-labelledby="page-header-themes-dropdown">
-                <div class="p-3 bg-body-light rounded-top">
-                  <h5 class="h6 text-center mb-0">
-                    Color Themes
-                  </h5>
+                </li> --}}
+                            <li class="nav-main-item">
+                                <a class="nav-main-link" href="/logout">
+                                    <i class="nav-main-link-icon fa fa-sign-out-alt"></i>
+                                    <span class="nav-main-link-name">Sign Out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END Side Navigation -->
                 </div>
-                <div class="p-3">
-                  <div class="row g-0 text-center">
-                    <div class="col-2">
-                      <a class="text-default theme-toggle" data-toggle="theme" data-theme="default" href="javascript:void(0)">
-                        <i class="fa fa-2x fa-circle"></i>
-                      </a>
+                <!-- END Sidebar Scrolling -->
+            </div>
+            <!-- Sidebar Content -->
+        </nav>
+        <!-- END Sidebar -->
+
+        <!-- Header -->
+        <header id="page-header">
+            <!-- Header Content -->
+            <div class="content-header">
+                <!-- Left Section -->
+                <div class="space-x-1">
+                    <!-- Toggle Sidebar -->
+                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                    <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout"
+                        data-action="sidebar_toggle">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <!-- END Toggle Sidebar -->
+
+
+                    <!-- Color Themes -->
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-themes-dropdown"
+                            data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true"
+                            aria-expanded="false">
+                            <i class="fa fa-fw fa-wrench"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg p-0" aria-labelledby="page-header-themes-dropdown">
+                            <div class="p-3 bg-body-light rounded-top">
+                                <h5 class="h6 text-center mb-0">
+                                    Color Themes
+                                </h5>
+                            </div>
+                            <div class="p-3">
+                                <div class="row g-0 text-center">
+                                    <div class="col-2">
+                                        <a class="text-default theme-toggle" data-toggle="theme" data-theme="default"
+                                            href="javascript:void(0)">
+                                            <i class="fa fa-2x fa-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="text-elegance theme-toggle" data-toggle="theme"
+                                            data-theme="/assets/css/themes/elegance.min.css"
+                                            href="javascript:void(0)">
+                                            <i class="fa fa-2x fa-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="text-pulse theme-toggle" data-toggle="theme"
+                                            data-theme="/assets/css/themes/pulse.min.css" href="javascript:void(0)">
+                                            <i class="fa fa-2x fa-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="text-flat theme-toggle" data-toggle="theme"
+                                            data-theme="/assets/css/themes/flat.min.css" href="javascript:void(0)">
+                                            <i class="fa fa-2x fa-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="text-corporate theme-toggle" data-toggle="theme"
+                                            data-theme="/assets/css/themes/corporate.min.css"
+                                            href="javascript:void(0)">
+                                            <i class="fa fa-2x fa-circle"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a class="text-earth theme-toggle" data-toggle="theme"
+                                            data-theme="/assets/css/themes/earth.min.css" href="javascript:void(0)">
+                                            <i class="fa fa-2x fa-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="col-2">
-                      <a class="text-elegance theme-toggle" data-toggle="theme" data-theme="/assets/css/themes/elegance.min.css" href="javascript:void(0)">
-                        <i class="fa fa-2x fa-circle"></i>
-                      </a>
-                    </div>
-                    <div class="col-2">
-                      <a class="text-pulse theme-toggle" data-toggle="theme" data-theme="/assets/css/themes/pulse.min.css" href="javascript:void(0)">
-                        <i class="fa fa-2x fa-circle"></i>
-                      </a>
-                    </div>
-                    <div class="col-2">
-                      <a class="text-flat theme-toggle" data-toggle="theme" data-theme="/assets/css/themes/flat.min.css" href="javascript:void(0)">
-                        <i class="fa fa-2x fa-circle"></i>
-                      </a>
-                    </div>
-                    <div class="col-2">
-                      <a class="text-corporate theme-toggle" data-toggle="theme" data-theme="/assets/css/themes/corporate.min.css" href="javascript:void(0)">
-                        <i class="fa fa-2x fa-circle"></i>
-                      </a>
-                    </div>
-                    <div class="col-2">
-                      <a class="text-earth theme-toggle" data-toggle="theme" data-theme="/assets/css/themes/earth.min.css" href="javascript:void(0)">
-                        <i class="fa fa-2x fa-circle"></i>
-                      </a>
-                    </div>
-                  </div>
+                    <!-- END Color Themes -->
                 </div>
+                <!-- END Left Section -->
 
-              </div>
-            </div>
-            <!-- END Color Themes -->
-          </div>
-          <!-- END Left Section -->
+                <!-- Right Section -->
+                <div class="space-x-1">
+                    <!-- User Dropdown -->
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user d-sm-none"></i>
+                            <span class="d-none d-sm-inline-block fw-semibold">{{ auth()->user()->surname }}</span>
+                            <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0"
+                            aria-labelledby="page-header-user-dropdown">
+                            <div class="px-2 py-3 bg-body-light rounded-top">
+                                <h5 class="h6 text-center mb-0">
+                                    {{ auth()->user()->full_name }}
+                                </h5>
+                            </div>
+                            <div class="p-2">
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1"
+                                    href="/logout">
+                                    <span>Sign Out</span>
+                                    <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END User Dropdown -->
+                    <!-- Toggle Side Overlay -->
 
-          <!-- Right Section -->
-          <div class="space-x-1">
-            <!-- User Dropdown -->
-            <div class="dropdown d-inline-block">
-              <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user d-sm-none"></i>
-                <span class="d-none d-sm-inline-block fw-semibold">{{ auth()->user()->surname }}</span>
-                <i class="fa fa-angle-down opacity-50 ms-1"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
-                <div class="px-2 py-3 bg-body-light rounded-top">
-                  <h5 class="h6 text-center mb-0">
-                    {{ auth()->user()->full_name }}
-                  </h5>
+                    <!-- END Toggle Side Overlay -->
                 </div>
-                <div class="p-2">
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="/logout">
-                    <span>Sign Out</span>
-                    <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
-                  </a>
+                <!-- END Right Section -->
+            </div>
+            <!-- END Header Content -->
+
+            <!-- Header Loader -->
+            <!-- Please check out the Activity page under Elements category to see examples of showing/hiding it -->
+            <div id="page-header-loader" class="overlay-header bg-primary">
+                <div class="content-header">
+                    <div class="w-100 text-center">
+                        <i class="far fa-sun fa-spin text-white"></i>
+                    </div>
                 </div>
-              </div>
             </div>
-            <!-- END User Dropdown -->
-            <!-- Toggle Side Overlay -->
+            <!-- END Header Loader -->
+        </header>
+        <!-- END Header -->
 
-            <!-- END Toggle Side Overlay -->
-          </div>
-          <!-- END Right Section -->
-        </div>
-        <!-- END Header Content -->
+        <!-- Main Container -->
+        <main id="main-container">
 
-        <!-- Header Loader -->
-        <!-- Please check out the Activity page under Elements category to see examples of showing/hiding it -->
-        <div id="page-header-loader" class="overlay-header bg-primary">
-          <div class="content-header">
-            <div class="w-100 text-center">
-              <i class="far fa-sun fa-spin text-white"></i>
+            <!-- Page Content -->
+            <div class="content">
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @foreach ($errors->all() as $err)
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+
+                        {{ $err }}
+                    </div>
+                @endforeach
+                @yield('content')
             </div>
-          </div>
-        </div>
-        <!-- END Header Loader -->
-      </header>
-      <!-- END Header -->
+            <!-- END Page Content -->
 
-      <!-- Main Container -->
-      <main id="main-container">
+            @yield('modals')
+        </main>
+        <!-- END Main Container -->
 
-        <!-- Page Content -->
-        <div class="content">
-          @yield('content')
-        </div>
-        <!-- END Page Content -->
+        <!-- Footer -->
+        <footer id="page-footer">
+            <div class="content py-3">
+                <div class="row fs-sm">
+                    <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
 
-        @yield('modals')
-      </main>
-      <!-- END Main Container -->
-
-      <!-- Footer -->
-      <footer id="page-footer">
-        <div class="content py-3">
-          <div class="row fs-sm">
-            <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
-
+                    </div>
+                    <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                        <a class="fw-semibold" href="javascript:void">{{ env('APP_NAME') }}</a> &copy; <span
+                            data-toggle="year-copy"></span>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-              <a class="fw-semibold" href="javascript:void">{{ env('APP_NAME') }}</a> &copy; <span data-toggle="year-copy"></span>
-            </div>
-          </div>
-        </div>
-      </footer>
-      <!-- END Footer -->
+        </footer>
+        <!-- END Footer -->
     </div>
     <!-- END Page Container -->
 
@@ -700,41 +760,38 @@
     @yield('scripts')
     <!-- Page JS Code -->
     <script src="/assets/js/pages/be_pages_dashboard.min.js"></script>
+    @stack('scripts')
     <script>
-        $('#dark-toggle').on('click', function () {
-            if (localStorage.getItem('darkMode') == 'true')
-            {
+        setTimeout(() => {
+            $('.dataTables_processing').hide()
+        }, 2000);
+        $('#dark-toggle').on('click', function() {
+            if (localStorage.getItem('darkMode') == 'true') {
                 localStorage.setItem('darkMode', 'false')
-            }
-            else
-            {
+            } else {
                 localStorage.setItem('darkMode', 'true')
             }
         })
 
 
 
-        $('body').on('click', '.theme-toggle', function () {
+        $('body').on('click', '.theme-toggle', function() {
             let color = $(this).data('theme')
             localStorage.setItem('theme', color)
         })
 
-        $(window).on('load',function () {
+        $(window).on('load', function() {
             let theme = localStorage.getItem('theme')
-            if (theme != '' && theme != 'defaullt')
-            {
+            if (theme != '' && theme != 'defaullt') {
                 $('head').append(`<link id="css-theme" rel="stylesheet" href="${theme}">`)
             }
 
             let darkMode = localStorage.getItem('darkMode')
-            if (darkMode == 'true')
-            {
+            if (darkMode == 'true') {
                 $('#page-container').addClass('sidebar-dark')
                 $('#page-container').addClass('page-header-dark')
                 $('#page-container').addClass('dark-mode')
-            }
-            else
-            {
+            } else {
                 $('#page-container').removeClass('sidebar-dark')
                 $('#page-container').removeClass('page-header-dark')
                 $('#page-container').removeClass('dark-mode')
@@ -742,5 +799,6 @@
         })
     </script>
 
-  </body>
+</body>
+
 </html>
