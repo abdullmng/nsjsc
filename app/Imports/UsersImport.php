@@ -28,7 +28,7 @@ class UsersImport implements ToModel, WithHeadingRow, WithUpserts
         $dob = Carbon::parse($row['date_of_birth'])->format('Y-m-d');
         $dofa = Carbon::parse($row['date_of_first_appointment'])->format('Y-m-d');
         $dopa = Carbon::parse($row['date_of_present_appointment'])->format('Y-m-d');
-        $grade_level = $row['grade_level'] ? $row['grade_level'] : null;
+        $grade_level = isset($row['grade_level']) ? $row['grade_level'] : null;
         $grade_level_id = $this->data ? $this->data['grade_level_id'] : null;
         $step_id = $this->data ? $this->data['step_id'] : null;
 
